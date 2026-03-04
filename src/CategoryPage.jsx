@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { Card, message, Button, Spin } from 'antd';
+import { Card, message, Button } from 'antd';
 import TimerComponent from './AnalogTimer';
 import { ensureDefaultQuestionsImported, getQuestionsByCategoryName } from './questionsApi';
+import CatSpinner from './CatSpinner';
 
 function CategoryPage() {
   const { name } = useParams();
@@ -121,7 +122,7 @@ function CategoryPage() {
 
       {isLoading ? (
         <div style={styles.loadingContainer}>
-          <Spin size="large" />
+          <CatSpinner size={110} />
         </div>
       ) : resultImage ? null : currentQuestion ? (
         <div style={styles.contentContainer}>

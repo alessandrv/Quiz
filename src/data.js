@@ -1,0 +1,504 @@
+const j = {
+    "Chimica Inorganica": [
+      {
+        "question": "Quale di questi elementi può formare più di 4 legami? CIAOA",
+        "A": "N",
+        "B": "F",
+        "C": "O",
+        "D": "P",
+        "correctAnswer": "D",
+        "image": null,
+        "medie": false
+      },
+      {
+        "question": "Secondo il modello atomico di Rutherford, l’atomo sarebbe in gran parte…",
+        "A": "Pieno di elettroni",
+        "B": "Vuoto",
+        "C": "Pieno di protoni",
+        "D": "Pieno di neutroni",
+        "correctAnswer": "B",
+        "asked": false,
+        "image": null,
+        "medie": false
+      },
+      {
+        "question": "Il gas naturale è oggi al centro della più importante crisi energetica del XXI secolo. Qual è il suo componente principale?",
+        "A": "Il gas propano",
+        "B": "Il gas propano liquido (o GPL)",
+        "C": "L’idrogeno",
+        "D": "Il metano",
+        "correctAnswer": "D",
+        "asked": false,
+        "image": null,
+        "medie": false
+      },
+      {
+        "question": "I periodi della Tavola Periodica contengono gli elementi che…",
+        "A": "Osservano la regola dell’ottetto",
+        "B": "Hanno lo stesso livello energetico degli elettroni di valenza",
+        "C": "Hanno lo stesso numero di elettroni",
+        "D": "Hanno elettronegatività simile",
+        "correctAnswer": "B",
+        "asked": false,
+        "image": null,
+        "medie": false
+      },
+      {
+        "question": "Quale delle seguenti sostanze è un gas nobile?",
+        "A": "N",
+        "B": "Ni",
+        "C": "F",
+        "D": "He",
+        "correctAnswer": "D",
+        "asked": false,
+        "image": null,
+        "medie": true
+      },
+      {
+        "question": "Quando il sale KCl si scioglie in acqua, si verifica:",
+        "A": "l’avvicinamento degli ioni con carica opposta",
+        "B": "l’idratazione degli ioni",
+        "C": "un aumento del pH",
+        "D": "una reazione di ossido-riduzione",
+        "correctAnswer": "B",
+        "asked": false,
+        "image": null,
+        "medie": false
+      },
+      {
+        "question": "In uno ione molecolare poliatomico, la somma algebrica dei numeri di ossidazione di tutti gli atomi deve essere uguale:",
+        "A": "a zero",
+        "B": "alla carica dello ione",
+        "C": "al numero di atomi presenti nello ione",
+        "D": "al numero di elettroni di valenza dell'atomo più elettronegativo",
+        "correctAnswer": "B",
+        "asked": false,
+        "image": null,
+        "medie": false
+      },
+      {
+        "question": "Il cloruro di sodio, NaCl, è un composto molto noto e largamente utilizzato nella vita di tutti i giorni. Il legame che unisce gli ioni Na+ e gli ioni Cl- è di tipo ionico. Il legame ionico si instaura tra:",
+        "A": "Elementi che presentano una grande differenza di elettronegatività",
+        "B": "Elementi che presentano elettronegatività molto simile o uguale",
+        "C": "Ioni che hanno sempre uguale carica in valore assoluto e segno",
+        "D": "Ioni che hanno sempre uguale carica in valore assoluto ma di segno opposto",
+        "correctAnswer": "A",
+        "asked": false,
+        "image": null,
+        "medie": false
+      },
+      {
+        "question": "Nella molecola di ammoniaca, NH3, qual è il numero di ossidazione dell’azoto?",
+        "A": "-3",
+        "B": "+3",
+        "C": "-1",
+        "D": "+1",
+        "correctAnswer": "A",
+        "asked": false,
+        "image": null,
+        "medie": false
+      },
+      {
+        "question": "Gli elementi nella tavola periodica sono ordinati sulla base di",
+        "A": "Numero atomico",
+        "B": "Massa atomica",
+        "C": "Affinità elettronica",
+        "D": "Elettronegatività",
+        "correctAnswer": "A",
+        "asked": false,
+        "image": null,
+        "medie": true
+      },
+      {
+        "question": "Due isotopi di uno stesso elemento differiscono per il numero di:",
+        "A": "Neutroni",
+        "B": "Elettroni",
+        "C": "Protoni",
+        "D": "Carica",
+        "correctAnswer": "A",
+        "asked": false,
+        "image": null,
+        "medie": false
+      },
+      {
+        "question": "prova123",
+        "A": "pollo",
+        "B": "gatto",
+        "C": "can",
+        "D": "boh",
+        "correctAnswer": "A",
+        "spiegazione": "Prova prova"
+      },
+      {
+        "question": "Domanda",
+        "A": "1",
+        "B": "2",
+        "C": "3",
+        "D": "4",
+        "correctAnswer": "C",
+        "image": "blob:http://localhost:3000/d0cac422-aa52-480a-9176-257520c6a7e9"
+      },
+      {
+        "question": "Lolla",
+        "A": "l",
+        "B": "l",
+        "C": "l",
+        "D": "ll",
+        "correctAnswer": "A",
+        "image": "/category/img3.jpg",
+        "medie": false,
+        "spiegazione": "dsa"
+      }
+    ],
+    "Chimica Fisica": [
+      {
+        "question": "Qual è la temperatura di ebollizione dell’acqua a pressione atmosferica?",
+        "A": "100 K",
+        "B": "273,15 K",
+        "C": "373,15 K",
+        "D": "298 K",
+        "correctAnswer": "C",
+        "asked": false,
+        "image": null,
+        "medie": false
+      },
+      {
+        "question": "La canfora (punto di fusione 175 °C) è una sostanza che un tempo era usata per le sue proprietà antitarme. Le palline di canfora, inserite nei cassetti per la conservazione dei tessuti, dopo un po' di mesi non si ritrovavano più. Quale fenomeno avveniva?",
+        "A": "Sublimazione della canfora",
+        "B": "Evaporazione della canfora",
+        "C": "Condensazione della canfora",
+        "D": "Fusione della canfora",
+        "correctAnswer": "A",
+        "asked": false,
+        "image": null,
+        "medie": false
+      },
+      {
+        "question": "Si definisce processo esotermico una trasformazione che comporta un trasferimento di calore dal sistema all'ambiente. Quali dei seguenti processi non è esotermico?",
+        "A": "La combustione",
+        "B": "La condensazione del vapore acqueo in pioggia",
+        "C": "Il congelamento dell'acqua da forma liquida in ghiaccio",
+        "D": "La fotosintesi",
+        "correctAnswer": "D",
+        "asked": false,
+        "image": null,
+        "medie": false
+      },
+      {
+        "question": "Il cambiamento climatico è stato al centro dei lavori della Conferenza delle Nazioni unite sul clima (Cop28). Quali gas serra contribuiscono maggiormente al cambiamento climatico?",
+        "A": "Anidride carbonica e metano",
+        "B": "Azoto e ossigeno",
+        "C": "Idrogeno ed elio",
+        "D": "Monossido di carbonio e vapori d'acqua",
+        "correctAnswer": "A",
+        "asked": false,
+        "image": null,
+        "medie": false
+      },
+      {
+        "question": "Qual è il processo di trasformazione di un gas in liquido?",
+        "A": "Condensazione",
+        "B": "Sublimazione",
+        "C": "Evaporazione",
+        "D": "Solidificazione",
+        "correctAnswer": "A",
+        "asked": false,
+        "image": null,
+        "medie": true
+      },
+      {
+        "question": "Quando scaldiamo l’acqua e la portiamo all’ebollizione per cucinare, cosa stiamo facendo dal punto di vista chimico?",
+        "A": "Stiamo rompendo interazioni tra le molecole di acqua",
+        "B": "Stiamo rompendo i legami tra gli atomi di H e l’atomo di O nelle singole molecole di acqua",
+        "C": "Stiamo formando delle interazioni tra le molecole di acqua e l’aria circostante",
+        "D": "Nessuna delle altre risposte",
+        "correctAnswer": "A",
+        "asked": false,
+        "image": null,
+        "medie": false
+      },
+      {
+        "question": "Qual è l’unità di misura dell’energia nel Sistema Internazionale (SI)?",
+        "A": "Pascal",
+        "B": "Joule",
+        "C": "Watt",
+        "D": "Ampere",
+        "correctAnswer": "B",
+        "asked": false,
+        "image": null,
+        "medie": false
+      },
+      {
+        "question": "Quale delle seguenti è una trasformazione isobara?",
+        "A": "Un gas compresso a volume costante",
+        "B": "Un gas riscaldato a pressione costante",
+        "C": "Un gas che si espande senza scambi di calore",
+        "D": "Un gas che si raffredda a temperatura costante",
+        "correctAnswer": "B",
+        "asked": false,
+        "image": null,
+        "medie": false
+      },
+      {
+        "question": "Qual è la relazione corretta tra pressione (P), volume (V) e temperatura (T) in un gas ideale?",
+        "A": "PV=nRT",
+        "B": "P/V=nRT",
+        "C": "PV2=nRT",
+        "D": "P=VRT",
+        "correctAnswer": "A",
+        "asked": false,
+        "image": null,
+        "medie": false
+      },
+      {
+        "question": "Quanto vale il numero di Avogadro?",
+        "A": "6,022 x10-23",
+        "B": "6,022 x10^23",
+        "C": "6,023 x10^22",
+        "D": "6,023x10-22",
+        "correctAnswer": "B",
+        "asked": false,
+        "image": null,
+        "medie": false
+      }
+    ],
+    "Chimica Organica": [
+      {
+        "question": "Sul correttore che normalmente usi a scuola trovi una serie di pittogrammi di pericolo, tra cui il seguente: Qual è il suo significato?",
+        "A": "Corrosivo",
+        "B": "Irritante",
+        "C": "Pericoloso per l’ambiente",
+        "D": "Pericolo serio per la salute",
+        "correctAnswer": "D",
+        "asked": false,
+        "image": "./category/img1.jpg",
+        "medie": false
+      },
+      {
+        "question": "L’olio da cucina è poco solubile in acqua perché:",
+        "A": "Contiene frammenti molecolari polari",
+        "B": "Contiene lunghe catene carbonio-carbonio",
+        "C": "Contiene frammenti molecolari polari e apolari",
+        "D": "Contiene solo atomi di carbonio e ossigeno",
+        "correctAnswer": "B",
+        "asked": false,
+        "image": null,
+        "medie": false
+      },
+      {
+        "question": "L’aspirina, uno dei farmaci antinfiammatori più comuni, è il nome commerciale dell’acido acetilsalicilico, la cui struttura è qui riportata. Tenendo conto delle due strutture, secondo te perché il nome chimico dell’aspirina inizia con “acido”?",
+        "A": "Per la presenza dell’anello benzenico",
+        "B": "Per le sue capacità antinfiammatorie",
+        "C": "Per la presenza di un atomo di ossigeno legato direttamente al benzene",
+        "D": "Per la presenza di un gruppo -OH integrato nella funzione -COOH",
+        "correctAnswer": "D",
+        "asked": false,
+        "image": "./category/img2.jpg",
+        "medie": false
+      },
+      {
+        "question": "Indicare le strutture che rappresentano un’aldeide e un estere:",
+        "A": "1 e 4",
+        "B": "2 e 3",
+        "C": "1 e 3",
+        "D": "2 e 4",
+        "correctAnswer": "D",
+        "asked": false,
+        "image": "./category/img3.jpg",
+        "medie": false
+      },
+      {
+        "question": "L’emoglobina è una proteina presente nei globuli rossi dei vertebrati. Quale metallo è presente nella struttura (suggerimento: è lo stesso metallo che rappresenta il componente principale dell’acciaio)?",
+        "A": "Ferro",
+        "B": "Rame",
+        "C": "Zinco",
+        "D": "Alluminio",
+        "correctAnswer": "A",
+        "asked": false,
+        "image": null,
+        "medie": false
+      },
+      {
+        "question": "Quale gas è rilasciato durante la respirazione delle piante durante il giorno?",
+        "A": "Ossigeno",
+        "B": "Anidride carbonica",
+        "C": "Metano",
+        "D": "Monossido di carbonio",
+        "correctAnswer": "A",
+        "asked": false,
+        "image": null,
+        "medie": true
+      },
+      {
+        "question": "Qual è la formula generale degli alcani?",
+        "A": "CnH2n+2",
+        "B": "CnH2n",
+        "C": "CnH2n-2",
+        "D": "CnH2n+4",
+        "correctAnswer": "A",
+        "asked": false,
+        "image": null,
+        "medie": false,
+        "spiegazione": "Gli alcani sono idrocarburi saturi e seguono la formula CnH2n+2."
+      },
+      {
+        "question": "Quale gruppo funzionale è presente negli alcoli?",
+        "A": "CHO",
+        "B": "COOH",
+        "C": "OH",
+        "D": "NH2",
+        "correctAnswer": "C",
+        "asked": false,
+        "image": null,
+        "medie": false
+      },
+      {
+        "question": "Qual è il nome IUPAC del composto CH3-CH2-CH2-CH3?",
+        "A": "propano",
+        "B": "butano",
+        "C": "metano",
+        "D": "pentano",
+        "correctAnswer": "B",
+        "asked": false,
+        "image": null,
+        "medie": false
+      },
+      {
+        "question": "Quale elemento chimico costituisce la base delle molecole organiche?",
+        "A": "azoto",
+        "B": "ossigeno",
+        "C": "carbonio",
+        "D": "fluoro",
+        "correctAnswer": "C",
+        "asked": false,
+        "image": null,
+        "medie": true
+      }
+    ],
+    "Chimica Analitica": [
+      {
+        "question": "Quale unità di misura viene utilizzata per esprimere la quantità di sostanza in chimica?",
+        "A": "Mole",
+        "B": "Grammo",
+        "C": "Litro",
+        "D": "Kelvin",
+        "correctAnswer": "A",
+        "asked": false,
+        "image": null,
+        "medie": true
+      },
+      {
+        "question": "Per pesare quantità dell’ordine dei milligrammi, che strumento si usa?",
+        "A": "bilancia analitica",
+        "B": "bilancia tecnica",
+        "C": "cilindro graduato",
+        "D": "calibro",
+        "correctAnswer": "A",
+        "asked": false,
+        "image": null,
+        "medie": false
+      },
+      {
+        "question": "Qual è lo scopo principale della chimica analitica?",
+        "A": "produrre nuove molecole",
+        "B": "determinare la composizione di una sostanza",
+        "C": "misurare la temperatura di un campione",
+        "D": "prevedere le reazioni chimiche",
+        "correctAnswer": "B",
+        "asked": false,
+        "image": null,
+        "medie": false
+      },
+      {
+        "question": "Quale dei seguenti metodi è comunemente usato per separare gli elementi di una miscela omogenea?",
+        "A": "titolazione",
+        "B": "cromatografia",
+        "C": "filtrazione",
+        "D": "elettrolisi",
+        "correctAnswer": "B",
+        "asked": false,
+        "image": null,
+        "medie": false
+      },
+      {
+        "question": "Cosa si utilizza in una titolazione acido-base per determinare il punto di equivalenza?",
+        "A": "pHmetro",
+        "B": "bilancia",
+        "C": "pipetta",
+        "D": "termometro",
+        "correctAnswer": "A",
+        "asked": false,
+        "image": null,
+        "medie": false
+      },
+      {
+        "question": "Qual è il pH di una soluzione neutra a temperatura ambiente?",
+        "A": "0",
+        "B": "7",
+        "C": "14",
+        "D": "10",
+        "correctAnswer": "B",
+        "asked": false,
+        "image": null,
+        "medie": false
+      },
+      {
+        "question": "Qual è la funzione di un solvente in una soluzione?",
+        "A": "aumentare la temperatura della soluzione",
+        "B": "determinare la concentrazione del soluto",
+        "C": "dissolvere il soluto",
+        "D": "reagire chimicamente con il soluto",
+        "correctAnswer": "C",
+        "asked": false,
+        "image": null,
+        "medie": false
+      },
+      {
+        "question": "Qual è l’unità di misura della concentrazione molare (molarità)?",
+        "A": "mol/L",
+        "B": "g/mol",
+        "C": "g/L",
+        "D": "L/mol",
+        "correctAnswer": "A",
+        "asked": false,
+        "image": null,
+        "medie": false
+      },
+      {
+        "question": "Cos’è una beuta?",
+        "A": "una piastra riscaldante",
+        "B": "un recipiente",
+        "C": "una siringa",
+        "D": "una bilancia",
+        "correctAnswer": "B",
+        "asked": false,
+        "image": null,
+        "medie": true
+      },
+      {
+        "question": "10^-12 corrisponde all’ordine di grandezza del…",
+        "A": "micro",
+        "B": "nano",
+        "C": "pico",
+        "D": "femto",
+        "correctAnswer": "C",
+        "asked": false,
+        "image": null,
+        "medie": false
+      }
+    ],
+    "Pollo": [
+      {
+        "question": "Cane",
+        "A": "a",
+        "B": "d",
+        "C": "can",
+        "D": "d",
+        "correctAnswer": "B",
+        "image": "./category/img3.jpg",
+        "medie": true,
+        "spiegazione": "GIusto"
+      }
+    ]
+  }
+  export default j;

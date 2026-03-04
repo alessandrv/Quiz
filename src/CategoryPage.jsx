@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { Card, message, Modal, Button, Spin } from 'antd';
+import { Card, message, Button, Spin } from 'antd';
 import TimerComponent from './AnalogTimer';
 import { ensureDefaultQuestionsImported, getQuestionsByCategoryName } from './questionsApi';
 
@@ -11,13 +11,9 @@ function CategoryPage() {
   const [askedQuestionIds, setAskedQuestionIds] = useState([]);
   const [totalQuestions, setTotalQuestions] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
-  const [selectedAnswer, setSelectedAnswer] = useState(null);
-  const [answerFeedback, setAnswerFeedback] = useState(null);
   const [isAnswered, setIsAnswered] = useState(false);
-  const [disabledCards, setDisabledCards] = useState([]);
   const [timerKey, setTimerKey] = useState(0);
-  const [isModalVisible, setIsModalVisible] = useState(false);
-  const [spiegazione, setSpiegazione] = useState('');
+  const [resultImage, setResultImage] = useState(null);
   const handleClick = () => {
     navigate(`/home`);
   };
@@ -59,10 +55,8 @@ function CategoryPage() {
         setAskedQuestionIds(cycleAskedIds);
         const nextQuestion = pickRandomQuestion(categoryQuestions, cycleAskedIds);
         setCurrentQuestion(nextQuestion);
-        setSelectedAnswer(null);
-        setAnswerFeedback(null);
         setIsAnswered(false);
-        setDisabledCards([]);
+        setResultImage(null);
         setTimerKey((prevKey) => prevKey + 1);
       } catch (error) {
         console.error('Error loading questions:', error);
@@ -80,9 +74,10 @@ function CategoryPage() {
   };
 
   const handleAnswerClick = (answer) => {
-    if (answer === currentQuestion.correctAnswer) {
+    const isCorrect = answer === currentQuestion.correctAnswer;
+
+    if (isCorrect) {
       setIsAnswered(true);
-      setAnswerFeedback('correct');
       message.success('Risposta corretta!');
 
       if (currentQuestion?.id && !askedQuestionIds.includes(currentQuestion.id)) {
@@ -96,34 +91,26 @@ function CategoryPage() {
           localStorage.setItem(`asked:${name}`, JSON.stringify(nextAskedIds));
         }
       }
-
-      // If the question has a "spiegazione" field, show the modal
-      if (currentQuestion.spiegazione) {
-        setSpiegazione(currentQuestion.spiegazione);  // Set the explanation text
-        setIsModalVisible(true);  // Show the modal
-      }
-
-      // Redirect to home if no modal is present
-      if (!currentQuestion.spiegazione) {
-        setTimeout(() => {
-          navigate('/home');
-        }, 3000);
-      }
+      setResultImage(`${process.env.PUBLIC_URL}/gatto.jpeg`);
     } else {
-      setAnswerFeedback('incorrect');
       message.error('Risposta sbagliata!');
-      setDisabledCards(prevState => [...prevState, answer]);
+      setResultImage(`${process.env.PUBLIC_URL}/gattotriste.jpeg`);
     }
 
-    setSelectedAnswer(answer);
+    setIsAnswered(true);
+    setTimeout(() => {
+      navigate('/home');
+    }, 4000);
   };
-
-  const handleModalClose = () => {
-    setIsModalVisible(false);  // Close the modal
-    navigate('/home');  };
 
   return (
     <div style={styles.pageContainer}>
+      {resultImage ? (
+        <div style={styles.feedbackContainer}>
+          <img src={resultImage} alt="Feedback risultato" style={styles.feedbackImage} />
+        </div>
+      ) : null}
+
       {!isLoading && currentQuestion && (
         <TimerComponent
           key={timerKey}
@@ -136,7 +123,7 @@ function CategoryPage() {
         <div style={styles.loadingContainer}>
           <Spin size="large" />
         </div>
-      ) : currentQuestion ? (
+      ) : resultImage ? null : currentQuestion ? (
         <div style={styles.contentContainer}>
           {currentQuestion.image && (
             <img
@@ -151,20 +138,13 @@ function CategoryPage() {
             {['A', 'B', 'C', 'D', 'E'].map((option, index) => (
               <Card
                 key={index}
-                onClick={() => !isAnswered && !disabledCards.includes(option) && handleAnswerClick(option)}
-                hoverable={!isAnswered && !disabledCards.includes(option)}
+                onClick={() => !isAnswered && handleAnswerClick(option)}
+                hoverable={!isAnswered}
                 style={{
                   ...styles.card,
-                  backgroundColor: disabledCards.includes(option)
-                    ? '#ff4d4f'
-                    : selectedAnswer === option && answerFeedback === 'correct'
-                    ? '#52c41a'
-                    : '#fff',
-                  color: disabledCards.includes(option) || (selectedAnswer === option && answerFeedback === 'correct')
-                    ? '#fff'
-                    : '#000',
-                  opacity: disabledCards.includes(option) ? 0.5 : 1,
-                  pointerEvents: disabledCards.includes(option) ? 'none' : 'auto'
+                  ...(option === 'E' ? styles.centerLastOption : {}),
+                  backgroundColor: '#fff',
+                  color: '#000',
                 }}
               >
                 <strong>{option}. </strong>{currentQuestion[option]}
@@ -182,17 +162,6 @@ function CategoryPage() {
        
 
       )}
-
-      {/* Modal for explanation */}
-      <Modal
-        title="Spiegazione"
-        visible={isModalVisible}
-        onOk={handleModalClose}
-        okText="Continua"
-        onCancel={handleModalClose}
-      >
-        <p>{spiegazione}</p>
-      </Modal>
     </div>
   );
 }
@@ -210,6 +179,25 @@ const styles = {
     textAlign: 'center',
     width: '100%',
     maxWidth: '600px',
+    position: 'relative',
+    zIndex: 1,
+  },
+  feedbackContainer: {
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: '#000',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    zIndex: 1000,
+  },
+  feedbackImage: {
+    width: '100vw',
+    height: '100vh',
+    objectFit: 'cover',
   },
   loadingContainer: {
     display: 'flex',
@@ -240,6 +228,11 @@ const styles = {
     textAlign: 'center',
     fontSize: '18px',
     padding: '20px',
+  },
+  centerLastOption: {
+    gridColumn: '1 / span 2',
+    justifySelf: 'center',
+    width: 'calc(50% - 10px)',
   },
 };
 

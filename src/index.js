@@ -7,7 +7,6 @@ import Home from './Home';
 import CategoryPage from './CategoryPage';
 
 import { HashRouter, Routes, Route } from "react-router-dom"; // Use HashRouter instead of BrowserRouter
-import AdminPage from './AdminPage';
 import QuestionManager from './QuestionManager';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

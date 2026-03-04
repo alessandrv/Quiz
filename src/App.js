@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { Button, message, Space, Drawer } from 'antd';
 import { useNavigate } from 'react-router-dom';

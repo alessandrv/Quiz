@@ -141,7 +141,7 @@ function CategoryPage() {
           {currentQuestion.image && (
             <img
               src={currentQuestion.image}
-              alt="Question Image"
+              alt="Illustrazione della domanda"
               style={styles.image}
             />
           )}

@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { Card, message, Button } from 'antd';
+import { Card, message, Button, Spin } from 'antd';
 import TimerComponent from './AnalogTimer';
 import { ensureDefaultQuestionsImported, getQuestionsByCategoryName } from './questionsApi';
-import CatSpinner from './CatSpinner';
 
 function CategoryPage() {
   const { name } = useParams();
@@ -13,6 +12,8 @@ function CategoryPage() {
   const [totalQuestions, setTotalQuestions] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   const [isAnswered, setIsAnswered] = useState(false);
+  const [selectedAnswer, setSelectedAnswer] = useState(null);
+  const [answerFeedback, setAnswerFeedback] = useState(null);
   const [timerKey, setTimerKey] = useState(0);
   const [resultImage, setResultImage] = useState(null);
   const handleClick = () => {
@@ -57,6 +58,8 @@ function CategoryPage() {
         const nextQuestion = pickRandomQuestion(categoryQuestions, cycleAskedIds);
         setCurrentQuestion(nextQuestion);
         setIsAnswered(false);
+        setSelectedAnswer(null);
+        setAnswerFeedback(null);
         setResultImage(null);
         setTimerKey((prevKey) => prevKey + 1);
       } catch (error) {
@@ -79,6 +82,8 @@ function CategoryPage() {
 
     if (isCorrect) {
       setIsAnswered(true);
+      setSelectedAnswer(answer);
+      setAnswerFeedback('correct');
       message.success('Risposta corretta!');
 
       if (currentQuestion?.id && !askedQuestionIds.includes(currentQuestion.id)) {
@@ -93,15 +98,19 @@ function CategoryPage() {
         }
       }
       setResultImage(`${process.env.PUBLIC_URL}/gatto.jpeg`);
+      setTimeout(() => {
+        navigate('/home');
+      }, 4000);
     } else {
       message.error('Risposta sbagliata!');
       setResultImage(`${process.env.PUBLIC_URL}/gattotriste.jpeg`);
+      setTimeout(() => {
+        setResultImage(null);
+        setIsAnswered(true);
+        setSelectedAnswer(answer);
+        setAnswerFeedback('incorrect');
+      }, 4000);
     }
-
-    setIsAnswered(true);
-    setTimeout(() => {
-      navigate('/home');
-    }, 4000);
   };
 
   return (
@@ -122,7 +131,7 @@ function CategoryPage() {
 
       {isLoading ? (
         <div style={styles.loadingContainer}>
-          <CatSpinner size={110} />
+          <Spin size="large" />
         </div>
       ) : resultImage ? null : currentQuestion ? (
         <div style={styles.contentContainer}>
@@ -144,8 +153,9 @@ function CategoryPage() {
                 style={{
                   ...styles.card,
                   ...(option === 'E' ? styles.centerLastOption : {}),
-                  backgroundColor: '#fff',
-                  color: '#000',
+                  backgroundColor: selectedAnswer === option && answerFeedback === 'incorrect' ? '#ff4d4f' : '#fff',
+                  color: selectedAnswer === option && answerFeedback === 'incorrect' ? '#fff' : '#000',
+                  opacity: selectedAnswer === option && answerFeedback === 'incorrect' ? 0.7 : 1,
                 }}
               >
                 <strong>{option}. </strong>{currentQuestion[option]}

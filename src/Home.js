@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Card, message } from 'antd'; // Import Ant Design's Card component
+import { Button, Card, message, Spin } from 'antd'; // Import Ant Design's Card component
 import { useNavigate } from 'react-router-dom';
 import './App.css';
 import { ensureDefaultQuestionsImported, getCategories } from './questionsApi';
-import CatSpinner from './CatSpinner';
 
 const CATEGORY_ORDER = ['facile', 'medio', 'difficile'];
 const formatCategoryName = (name) => name ? `${name.charAt(0).toUpperCase()}${name.slice(1)}` : name;
@@ -79,7 +78,7 @@ function Home() {
         <h1>Categorie</h1>
         {isLoadingCategories ? (
           <div style={{ minHeight: '180px', display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%' }}>
-            <CatSpinner size={110} />
+            <Spin size="large" />
           </div>
         ) : (
           <div className="category-grid" style={{ display: 'flex', flexWrap: 'nowrap', justifyContent: 'space-between', width: '100%', gap: '20px' }}>

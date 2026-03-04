@@ -148,7 +148,7 @@ function CategoryPage() {
 
           <h2 style={styles.question}>{currentQuestion.question}</h2>
           <div style={styles.cardsContainer}>
-            {['A', 'B', 'C', 'D'].map((option, index) => (
+            {['A', 'B', 'C', 'D', 'E'].map((option, index) => (
               <Card
                 key={index}
                 onClick={() => !isAnswered && !disabledCards.includes(option) && handleAnswerClick(option)}

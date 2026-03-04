@@ -16,6 +16,7 @@ const mapDbQuestionToUi = (row) => ({
   B: row.option_b,
   C: row.option_c,
   D: row.option_d,
+  E: row.option_e,
   correctAnswer: row.correct_answer,
   spiegazione: row.explanation,
   image: row.image_path,
@@ -29,6 +30,7 @@ const mapUiQuestionToDb = (question, categoryId) => ({
   option_b: question.B,
   option_c: question.C,
   option_d: question.D,
+  option_e: question.E,
   correct_answer: question.correctAnswer,
   explanation: question.spiegazione || null,
   image_path: question.image || null,
@@ -98,6 +100,7 @@ export const ensureDefaultQuestionsImported = async () => {
         option_b: item.B || '',
         option_c: item.C || '',
         option_d: item.D || '',
+        option_e: item.E || '',
         correct_answer: item.correctAnswer || 'A',
         explanation: item.spiegazione || null,
         image_path: normalizeImportedImagePath(item.image),
@@ -150,7 +153,7 @@ export const getQuestionsByCategoryName = async (categoryName) => {
 
   let query = supabase
     .from('questions')
-    .select('id,question,option_a,option_b,option_c,option_d,correct_answer,explanation,image_path,created_at')
+    .select('id,question,option_a,option_b,option_c,option_d,option_e,correct_answer,explanation,image_path,created_at')
     .eq('category_id', category.id)
     .order('created_at', { ascending: true });
 
@@ -167,7 +170,7 @@ export const getGroupedQuestions = async () => {
     getCategories(),
     supabase
       .from('questions')
-      .select('id,category_id,question,option_a,option_b,option_c,option_d,correct_answer,explanation,image_path,created_at')
+      .select('id,category_id,question,option_a,option_b,option_c,option_d,option_e,correct_answer,explanation,image_path,created_at')
       .order('created_at', { ascending: true }),
   ]);
 
@@ -236,13 +239,13 @@ export const upsertQuestion = async ({ categoryName, question }) => {
       .from('questions')
       .update(payload)
       .eq('id', question.id)
-      .select('id,question,option_a,option_b,option_c,option_d,correct_answer,explanation,image_path,created_at')
+      .select('id,question,option_a,option_b,option_c,option_d,option_e,correct_answer,explanation,image_path,created_at')
       .single();
   } else {
     request = supabase
       .from('questions')
       .insert(payload)
-      .select('id,question,option_a,option_b,option_c,option_d,correct_answer,explanation,image_path,created_at')
+      .select('id,question,option_a,option_b,option_c,option_d,option_e,correct_answer,explanation,image_path,created_at')
       .single();
   }
 

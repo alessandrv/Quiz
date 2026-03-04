@@ -7,15 +7,32 @@ import { ensureDefaultQuestionsImported, getCategories } from './questionsApi';
 function Home() {
   const navigate = useNavigate();
   const [categories, setCategories] = useState([]); // State to store categories
+  const preferredOrder = ['facile', 'medio', 'difficile'];
 
   useEffect(() => {
     const loadCategories = async () => {
       try {
         await ensureDefaultQuestionsImported();
         const categoryRows = await getCategories();
-        const categoryArray = categoryRows.map((item, index) => ({
+        const orderedRows = [...categoryRows].sort((left, right) => {
+          const leftIndex = preferredOrder.indexOf(left.name.toLowerCase());
+          const rightIndex = preferredOrder.indexOf(right.name.toLowerCase());
+
+          if (leftIndex === -1 && rightIndex === -1) {
+            return left.name.localeCompare(right.name);
+          }
+          if (leftIndex === -1) {
+            return 1;
+          }
+          if (rightIndex === -1) {
+            return -1;
+          }
+          return leftIndex - rightIndex;
+        });
+
+        const categoryArray = orderedRows.map((item, index) => ({
           name: item.name,
-          color: `hsl(${(index * 480) / Math.max(categoryRows.length, 1)}, 70%, 50%)`,
+          color: `hsl(${(index * 480) / Math.max(orderedRows.length, 1)}, 70%, 50%)`,
         }));
         setCategories(categoryArray);
       } catch (error) {
@@ -40,15 +57,14 @@ function Home() {
     <div className="Home">
       <header className="App-header">
         <h1>Categorie</h1>
-        {/* 2x2 Grid Layout for Category Cards */}
-        <div className="category-grid" style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around' }}>
+        <div className="category-grid" style={{ display: 'flex', flexWrap: 'nowrap', justifyContent: 'space-between', width: '100%', gap: '20px' }}>
           {categories.map((category, index) => (
             <Card
               key={index}
               hoverable
               onClick={() => handleCardClick(category.name)}
               style={{
-                width: '45%',
+                width: '33.33%',
                 marginBottom: '20px',
                 backgroundColor: category.color,
                 textAlign: 'center',

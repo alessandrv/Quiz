@@ -240,6 +240,11 @@ function QuestionManager() {
       key: 'D',
     },
     {
+      title: 'Opzione E',
+      dataIndex: 'E',
+      key: 'E',
+    },
+    {
       title: 'Spiegazione',
       dataIndex: 'spiegazione',
       key: 'spiegazione',
@@ -343,12 +348,16 @@ function QuestionManager() {
           <Form.Item name="D" label="Opzione D" rules={[{ required: true }]}>
             <Input />
           </Form.Item>
+          <Form.Item name="E" label="Opzione E" rules={[{ required: true }]}>
+            <Input />
+          </Form.Item>
           <Form.Item name="correctAnswer" label="Risposta Corretta" rules={[{ required: true }]}>
             <Select>
               <Option value="A">A</Option>
               <Option value="B">B</Option>
               <Option value="C">C</Option>
               <Option value="D">D</Option>
+              <Option value="E">E</Option>
             </Select>
           </Form.Item>
 

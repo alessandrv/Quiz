@@ -4,10 +4,11 @@ import { useNavigate } from 'react-router-dom';
 import './App.css';
 import { ensureDefaultQuestionsImported, getCategories } from './questionsApi';
 
+const CATEGORY_ORDER = ['facile', 'medio', 'difficile'];
+
 function Home() {
   const navigate = useNavigate();
   const [categories, setCategories] = useState([]); // State to store categories
-  const preferredOrder = ['facile', 'medio', 'difficile'];
 
   useEffect(() => {
     const loadCategories = async () => {
@@ -15,8 +16,8 @@ function Home() {
         await ensureDefaultQuestionsImported();
         const categoryRows = await getCategories();
         const orderedRows = [...categoryRows].sort((left, right) => {
-          const leftIndex = preferredOrder.indexOf(left.name.toLowerCase());
-          const rightIndex = preferredOrder.indexOf(right.name.toLowerCase());
+          const leftIndex = CATEGORY_ORDER.indexOf(left.name.toLowerCase());
+          const rightIndex = CATEGORY_ORDER.indexOf(right.name.toLowerCase());
 
           if (leftIndex === -1 && rightIndex === -1) {
             return left.name.localeCompare(right.name);
